@@ -11,6 +11,6 @@ node {
     }
 
     stage('Build'){
-        app = docker.build("Dockerfile")
+        app = docker.build("dockerfile")
     }
 }
