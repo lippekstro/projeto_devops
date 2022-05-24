@@ -26,4 +26,9 @@ Para executar a aplicação com dependencia do banco MySQL e a instância do Jen
 docker-compose -f aplicacao.yaml up
 ```
 
+## Tarefas em aberto
+
+:memo: Corrigir pipeline no Jenkins
+
+
 Copyright :copyright: 2022 - Teste Devops
