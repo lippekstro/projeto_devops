@@ -13,7 +13,6 @@ services:
     container_name: db
     environment:
       - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_DATABASE=loja
       - MYSQL_USER=user
       - MYSQL_PASSWORD=pass
     ports:
