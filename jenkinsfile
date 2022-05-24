@@ -1,0 +1,28 @@
+pipeline {
+    agent any
+    
+    environment{
+        dockerImage = ''
+        registry = 'lippekstro/docker-flask-test'
+        registryCredential = 'dockerhub_id'
+    }
+    
+    stages{
+        stage('build'){
+            steps{
+                script{
+                    dockerImage = docker.build registry
+                }
+            }
+        }
+        stage('push'){
+            steps{
+                script{
+                    docker.withRegistry('', registryCredential){
+                        dockerImage.push()
+                    }
+                }
+            }
+        }
+    }
+}
