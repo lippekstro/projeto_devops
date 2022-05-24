@@ -1,28 +1,11 @@
-pipeline {
-    agent any
-    
-    environment{
-        dockerImage = 'docker-flask-test'
-        registry = 'lippekstro/docker-flask-test'
-        registryCredential = 'dockerhub_id'
+node {
+    def app
+
+    stage('Clone'){
+        checkout scm
     }
-    
-    stages{
-        stage('build'){
-            steps{
-                script{
-                    dockerImage = docker.build registry
-                }
-            }
-        }
-        stage('push'){
-            steps{
-                script{
-                    docker.withRegistry('', registryCredential){
-                        dockerImage.push()
-                    }
-                }
-            }
-        }
+
+    stage('Build'){
+        app = docker.build("Dockerfile")
     }
 }
