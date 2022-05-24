@@ -2,7 +2,7 @@ pipeline {
     agent any
     
     environment{
-        dockerImage = ''
+        dockerImage = 'docker-flask-test'
         registry = 'lippekstro/docker-flask-test'
         registryCredential = 'dockerhub_id'
     }
